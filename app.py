@@ -2,11 +2,13 @@
 
 from flask import Flask, jsonify
 from flask_restful import Resource, Api
+from flask_cors import CORS
 
 from nctulib import library
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 app.config['JSON_AS_ASCII'] = False
 
