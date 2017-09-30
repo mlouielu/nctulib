@@ -5,8 +5,31 @@
 # for NCTU.
 #
 
+import urllib.parse
 import requests
 from lxml import etree
+
+
+class EXLLocation:
+    # A location of EXL
+
+    def __init__(self, e):
+        # Input is a lxml element represent div[@class="EXLLocationList"]
+        self.library = e.xpath('descendant::span/span')[0].text.strip()
+        self.floor = e.xpath('descendant::span[3]/strong')[0].text
+        self.cite = e.xpath('descendant::span[3]/cite')[0].text
+        self.available = e.xpath('descendant::span[3]/em')[0].text
+
+    def __repr__(self):
+        return f'<{self.library}: {self.cite}: {self.available}>'
+
+    def json(self):
+        return {
+            'library': self.library,
+            'floor': self.floor,
+            'cite': self.cite,
+            'available': self.available
+        }
 
 
 class EXLItem:
@@ -19,6 +42,23 @@ class EXLItem:
         self.author = ''.join(item.xpath('descendant::h3')[0].itertext()).strip() if item.xpath('descendant::h3') else None
         self.url = item.xpath('descendant::h2/a')[0].get('href')
         self.url = ('' if self.url.startswith('http') else baseurl) + self.url
+        self.url = self.url.replace('detailsTab', 'locationsTab')
+        self.bid = urllib.parse.parse_qs(self.url)['doc'][-1]
+
+    def get_locations(self):
+        LOCATION_URL = ('http://ustcate.lib.nctu.edu.tw/primo_library/libweb/'
+                        f'action/display.do?tabs=locationsTab&fn=search&doc={self.bid}')
+        r = requests.get(LOCATION_URL)
+        root = etree.HTML(r.text)
+
+        return [EXLLocation(self.bid).json() for e in root.xpath('//div[@class="EXLLocationList"]')]
+
+    def json(self):
+        return {
+            'title': self.title,
+            'author': self.author,
+            'bid': self.bid,
+        }
 
 
 class EXLParser:
