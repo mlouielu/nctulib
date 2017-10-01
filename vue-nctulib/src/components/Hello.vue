@@ -106,12 +106,43 @@ export default {
   border-radius: 0;
 }
 
-#bk {
-  background-image: url(https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg);
-  background-repeat: no-repeat;
-  background-position: 50% 25%;
-  background-size: 35%;
+@media screen and (max-width: 600px) {
+  #bk {
+    background-image: url(https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 25%;
+    background-size: 28%;
+  }
 }
+
+@media screen and (max-width: 1200px) {
+  #bk {
+    background-image: url(https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 28%;
+    background-size: 15%;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  #bk {
+    background-image: url(https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 23%;
+    background-size: 12%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  #bk {
+    background-image: url(https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 25%;
+    background-size: 8%;
+  }
+}
+
+
 
 .spinner {
   width: 40px;
