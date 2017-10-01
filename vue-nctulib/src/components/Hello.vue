@@ -1,13 +1,15 @@
 <template>
   <div id="search">
     <div id="search-input">
-      <b-input-group-button slot="right">
+      <b-input-group>
         <b-form-input v-model="searchText"
-                          type="text"
-                          v-on:keyup.enter.native="search"
-                          placeholder="The resource you want to search"></b-form-input>
-        <b-btn variant="info" v-on:click="search">Search</b-btn>
-      </b-input-group-button>
+                    type="text"
+                    v-on:keyup.enter.native="search"
+                    placeholder="The resource you want to search"></b-form-input>
+        <b-input-group-button slot="right">
+          <b-btn variant="info" v-on:click="search">Search</b-btn>
+        </b-input-group-button>
+      </b-input-group>
     </div>
     <div id="bk" v-if="!onSearch" style="height: 100%; width: 100%; display: table; margin-top: -50px">
       <div style="display: table-cell; vertical-align: middle;">
@@ -169,7 +171,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  
+
   -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
   animation: sk-bounce 2.0s infinite ease-in-out;
 }
@@ -185,10 +187,10 @@ export default {
 }
 
 @keyframes sk-bounce {
-  0%, 100% { 
+  0%, 100% {
     transform: scale(0.0);
     -webkit-transform: scale(0.0);
-  } 50% { 
+  } 50% {
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
   }
