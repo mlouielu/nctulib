@@ -78,7 +78,7 @@ export default {
       this.json = ''
       this.locations = {}
       this.searching = true
-      jquery.get('http://nctulib.louie.lu/books/' + this.searchText).then(response => {
+      jquery.get('http://nctulib.louie.lu/api/books/' + this.searchText).then(response => {
         this.json = response
         this.searching = false
       })
@@ -86,7 +86,7 @@ export default {
     get_book_locations: function (isVisible, entry) {
       console.log(isVisible, entry.target.id)
       if (isVisible && !this.locations[entry.target.id]) {
-        jquery.get('http://nctulib.louie.lu/location/' + entry.target.id).then(response => {
+        jquery.get('http://nctulib.louie.lu/api/location/' + entry.target.id).then(response => {
           Vue.set(this.locations, entry.target.id, response)
         })
       }
