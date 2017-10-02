@@ -18,6 +18,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   flex: 1 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 </style>
