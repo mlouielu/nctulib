@@ -4,10 +4,11 @@
       <b-input-group>
         <b-form-input v-model="searchText"
                     type="text"
+                    size="lg"
                     v-on:keyup.enter.native="search"
                     placeholder="The resource you want to search"></b-form-input>
         <b-input-group-button slot="right">
-          <b-btn variant="info" v-on:click="search">Search</b-btn>
+          <b-btn size="lg" variant="info" v-on:click="search">Search</b-btn>
         </b-input-group-button>
       </b-input-group>
     </div>
@@ -23,7 +24,7 @@
         </p>
         <b-container>
           <b-row class="justify-content-md-center">
-            <b-col cols="8">
+            <b-col cols="12" md="6" lg="4">
               <b-input-group>
                 <b-form-input v-model="searchText"
                             type="text"
@@ -54,15 +55,23 @@
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>
           </div>
-          <ul style="list-style-type: none; display: block; text-align:left; padding-left: 0;">
-            <li v-for="location in locations[item.bid]" v-model="locations[item.bind]"
-                style="text-indent: -1rem; padding-left: 2rem">
-              <i v-if="location.available == '有可用館藏'" class="fa fa-check" style="color: #43926a"></i>
-              <i v-else class="fa fa-times" style="color: #AC1D22"></i>
-              {{ location.library }} - {{ location.floor }}: {{ location.cite }}
-            </li>
-          </ul>
+          <b-row class="justify-content-md-center">
+            <b-col cols="12" md="8" lg="4">
+              <ul style="list-style-type: none; display: block; text-align:left; padding-left: 0;">
+                <li v-for="location in locations[item.bid]" v-model="locations[item.bind]"
+                    style="text-indent: -1rem; padding-left: 2rem">
+                  <i v-if="location.available == '有可用館藏'" class="fa fa-check" style="color: #43926a"></i>
+                  <i v-else class="fa fa-times" style="color: #AC1D22"></i>
+                  {{ location.library }} - {{ location.floor }}: {{ location.cite }}
+                </li>
+              </ul>
+            </b-col>
+          </b-row>
         </div>
+        <b-button :size="lg" variant="outline-primary">
+          <a href="#">Details</a>
+        </b-button>
+
       </b-card>
     </div>
   </div>
