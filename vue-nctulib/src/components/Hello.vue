@@ -1,6 +1,6 @@
 <template>
   <div id="search">
-    <div id="search-input">
+    <div id="search-input" v-if="onSearch">
       <b-input-group>
         <b-form-input v-model="searchText"
                     type="text"
@@ -11,15 +11,32 @@
         </b-input-group-button>
       </b-input-group>
     </div>
-    <div id="bk" v-if="!onSearch" style="height: 100%; width: 100%; display: table; margin-top: -50px">
+    <div v-if="!onSearch" style="height: 100%; width: 100%; display: table; margin-top: -10em">
       <div style="display: table-cell; vertical-align: middle;">
-       <h1>
-        交大館藏搜尋
-      </h1>
-      <p style="font-style: italic">
-        - for Humans
-      </p>
-     </div>
+        <img width="20%" src="https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg"
+             style="padding-bottom: 2em"></img>
+        <h1>
+          交大館藏搜尋
+        </h1>
+        <p style="font-style: italic">
+          - for Humans
+        </p>
+        <b-container>
+          <b-row class="justify-content-md-center">
+            <b-col cols="8">
+              <b-input-group>
+                <b-form-input v-model="searchText"
+                            type="text"
+                            v-on:keyup.enter.native="search"
+                            placeholder="The resource you want to search"></b-form-input>
+                <b-input-group-button slot="right">
+                  <b-btn variant="info" v-on:click="search">Search</b-btn>
+                </b-input-group-button>
+              </b-input-group>
+            </b-col>
+          </b-row>
+        </b-container>
+      </div>
     </div>
     <div v-if="searching" class="spinner">
       <div class="double-bounce1"></div>
@@ -119,7 +136,7 @@ export default {
 
 @media screen and (max-width: 1200px) {
   #bk {
-    background-image: url(https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg);
+    background-image: url());
     background-repeat: no-repeat;
     background-position: 50% 28%;
     background-size: 15%;
