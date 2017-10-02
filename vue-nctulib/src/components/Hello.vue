@@ -101,6 +101,9 @@ export default {
   },
   methods: {
     search: function () {
+      if (!this.searchText) {
+        return
+      }
       this.onSearch = true
       this.json = ''
       this.locations = {}
