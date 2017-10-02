@@ -12,7 +12,7 @@
         </b-input-group-button>
       </b-input-group>
     </div>
-    <div v-if="!onSearch" style="height: 100%; width: 100%; display: table">
+    <div v-if="!onSearch" style="height: 70%; width: 100%; display: table">
       <div style="display: table-cell; vertical-align: middle;">
         <img id="nctu-logo" src="https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg"></img>
         <h1>
@@ -135,8 +135,7 @@ export default {
 
 #nctu-logo {
   width: 30%;
-  padding-top: 3em;
-  padding-bottom: 1.2em;
+  padding-bottom: 1em;
 }
 
 @media (max-width: 576px) {
@@ -147,24 +146,22 @@ export default {
 
 @media (min-width: 768px) {
   #nctu-logo {
-    padding-top: 10em;
     width: 15%;
   }
 }
 
 @media (min-width: 992px) {
   #nctu-logo {
-    padding-top: 15em;
     width: 15%;
   }
 }
 
 @media (min-width: 1200px) {
   #nctu-logo {
-    padding-top: 15em;
     width: 10%;
   }
 }
+
 
 @media screen and (min-width: 720px) {
   #first-search-bar {
