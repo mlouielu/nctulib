@@ -12,15 +12,12 @@ export default {
 
 <style>
 #app {
-  height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-html body {
-  height: 100%;
+  flex: 1 0 auto;
+  padding: 20px;
 }
 </style>

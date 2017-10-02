@@ -12,20 +12,19 @@
         </b-input-group-button>
       </b-input-group>
     </div>
-    <div v-if="!onSearch" style="height: 100%; width: 100%; display: table; margin-top: -10em">
+    <div v-if="!onSearch" style="height: 100%; width: 100%; display: table">
       <div style="display: table-cell; vertical-align: middle;">
-        <img width="20%" src="https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg"
-             style="padding-bottom: 2em"></img>
+        <img id="nctu-logo" src="https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg"></img>
         <h1>
           交大館藏搜尋
         </h1>
-        <p style="font-style: italic">
+        <p style="font-style: italic; font-family: serif; font-size: 1.5em">
           - for Humans
         </p>
         <b-container>
           <b-row class="justify-content-md-center">
-            <b-col cols="12" md="6" lg="4">
-              <b-input-group>
+            <b-col cols="12" md="8" lg="5">
+              <b-input-group id="first-search-bar">
                 <b-form-input v-model="searchText"
                             type="text"
                             v-on:keyup.enter.native="search"
@@ -49,13 +48,13 @@
               v-bind:id="item.bid"
               v-for="item in json"
               v-observe-visibility="get_book_locations"
-              style="margin: 5px">
+              style="margin: 10px">
         <div>
           <div v-if="!locations[item.bid]" class="spinner-inner">
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>
           </div>
-          <b-row class="justify-content-md-center">
+          <b-row class="justify-content-md-center list-book-location">
             <b-col cols="12" md="8" lg="4">
               <ul style="list-style-type: none; display: block; text-align:left; padding-left: 0;">
                 <li v-for="location in locations[item.bid]" v-model="locations[item.bind]"
@@ -68,8 +67,8 @@
             </b-col>
           </b-row>
         </div>
-        <b-button :size="lg" variant="outline-primary">
-          <a href="#">Details</a>
+        <b-button variant="outline-primary">
+          <a :href="'http://ustcate.lib.nctu.edu.tw/primo_library/libweb/action/display.do?tabs=detailsTab&ct=display&fn=search&doc=' + item.bid" target="_new">Details</a>
         </b-button>
 
       </b-card>
@@ -134,43 +133,52 @@ export default {
   border-radius: 0;
 }
 
-@media screen and (max-width: 600px) {
-  #bk {
-    background-image: url(https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 25%;
-    background-size: 28%;
+#nctu-logo {
+  width: 30%;
+  padding-top: 5em;
+  padding-bottom: 1.2em;
+}
+
+@media (max-width: 576px) {
+  #ncut-logo {
+    width: 20%;
   }
 }
 
-@media screen and (max-width: 1200px) {
-  #bk {
-    background-image: url());
-    background-repeat: no-repeat;
-    background-position: 50% 28%;
-    background-size: 15%;
+@media (min-width: 768px) {
+  #nctu-logo {
+    padding-top: 10em;
+    width: 15%;
   }
 }
 
-@media screen and (max-width: 1600px) {
-  #bk {
-    background-image: url(https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 23%;
-    background-size: 12%;
+@media (min-width: 992px) {
+  #nctu-logo {
+    padding-top: 15em;
+    width: 15%;
   }
 }
 
-@media screen and (min-width: 1600px) {
-  #bk {
-    background-image: url(https://upload.wikimedia.org/wikipedia/zh/6/6b/NCTU_emblem.svg);
-    background-repeat: no-repeat;
-    background-position: 50% 25%;
-    background-size: 8%;
+@media (min-width: 1200px) {
+  #nctu-logo {
+    padding-top: 15em;
+    width: 10%;
   }
 }
 
+@media screen and (min-width: 720px) {
+  #first-search-bar {
+    margin-left: 0.7em;
+  }
+}
 
+.list-book-location {
+  padding-top: 1em;
+}
+
+.list-book-location li {
+  margin: 2px;
+}
 
 .spinner {
   width: 40px;

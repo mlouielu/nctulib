@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html style="height:100%">
+<html>
   <head>
     <meta charset="utf-8">
     <title>NCTU Library Search for Humans</title>
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nctulib.louie.lu">
+    <meta property="og:title" content="NCTU Library Search for Humans">
+    <meta property="og:image" content="">
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83736349-6"></script>
     <script>
@@ -18,5 +22,25 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Correct your search experiment.</span>
+        <span class="text-muted">Create by <a href="https://louie.lu">Louie Lu</a>.</span>
+        <span class="text-muted">Open Source at <a href="https://github.com/mlouielu/nctulib">GitHub</a>.</span>
+      </div>
+    </footer>
   </body>
+  <style>
+    html, body{
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .footer {
+      background-color: #F2F2F2;
+      padding: 20px;
+    }
+  </style>
 </html>
