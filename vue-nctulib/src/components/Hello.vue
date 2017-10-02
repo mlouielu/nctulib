@@ -67,8 +67,10 @@
             </b-col>
           </b-row>
         </div>
-        <b-button variant="outline-primary">
-          <a :href="'http://ustcate.lib.nctu.edu.tw/primo_library/libweb/action/display.do?tabs=detailsTab&ct=display&fn=search&doc=' + item.bid" target="_new">Details</a>
+        <b-button variant="outline-primary"
+                  :href="'http://ustcate.lib.nctu.edu.tw/primo_library/libweb/action/display.do?tabs=detailsTab&ct=display&fn=search&doc=' + item.bid"
+                  target="_new">
+          Details
         </b-button>
 
       </b-card>
