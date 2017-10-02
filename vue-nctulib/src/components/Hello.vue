@@ -135,7 +135,7 @@ export default {
 
 #nctu-logo {
   width: 30%;
-  padding-top: 5em;
+  padding-top: 3em;
   padding-bottom: 1.2em;
 }
 
