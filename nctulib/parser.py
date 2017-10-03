@@ -44,6 +44,7 @@ class EXLItem:
         self.url = ('' if self.url.startswith('http') else baseurl) + self.url
         self.url = self.url.replace('detailsTab', 'locationsTab')
         self.bid = urllib.parse.parse_qs(self.url)['doc'][-1]
+        self.image = item.xpath('descendant::img')[0].get('src')
 
     def get_locations(self):
         LOCATION_URL = ('http://ustcate.lib.nctu.edu.tw/primo_library/libweb/'
@@ -58,6 +59,7 @@ class EXLItem:
             'title': self.title,
             'author': self.author,
             'bid': self.bid,
+            'image': self.image
         }
 
 
