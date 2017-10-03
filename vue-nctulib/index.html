@@ -29,9 +29,19 @@
         <span class="text-muted">Correct your search experiment.</span>
         <span class="text-muted">By <a href="https://louie.lu">Louie Lu</a>.</span>
         <span class="text-muted">Open Source at <a href="https://github.com/mlouielu/nctulib">GitHub</a>.</span>
-        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fnctulib.louie.lu&layout=button_count&size=small&mobile_iframe=true&appId=1971757033055474&width=70&height=20" width="70" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-      </div>
+        <div class="fb-share-button"
+          data-href="https://nctulib.louie.lu"
+          data-layout="button_count">
+        </div>
     </footer>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.10&appId=1610800649140001";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   </body>
   <style>
     html, body{
