@@ -91,6 +91,7 @@ export default {
       searchText: '',
       json: '',
       locations: {},
+      locations_pending: {},
       fields: [
         {key: 'available', label: 't'},
         'cite',
@@ -107,6 +108,7 @@ export default {
       this.onSearch = true
       this.json = ''
       this.locations = {}
+      this.locations_pending = {}
       this.searching = true
       jquery.get('https://nctulib.louie.lu/api/books/' + this.searchText).then(response => {
         this.json = response
@@ -115,7 +117,9 @@ export default {
     },
     get_book_locations: function (isVisible, entry) {
       console.log(isVisible, entry.target.id)
-      if (isVisible && !this.locations[entry.target.id]) {
+
+      if (isVisible && !this.locations[entry.target.id] && !this.locations_pending[entry.target.id]) {
+        this.locations_pending[entry.target.id] = true
         jquery.get('https://nctulib.louie.lu/api/location/' + entry.target.id).then(response => {
           Vue.set(this.locations, entry.target.id, response)
         })
