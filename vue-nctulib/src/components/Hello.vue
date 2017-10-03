@@ -6,7 +6,7 @@
                     type="text"
                     size="lg"
                     v-on:keyup.enter.native="search"
-                    placeholder="The resource you want to search"></b-form-input>
+                    placeholder="enter title, ISBN, author..."></b-form-input>
         <b-input-group-button slot="right">
           <b-btn size="lg" variant="info" v-on:click="search">Search</b-btn>
         </b-input-group-button>
@@ -28,7 +28,7 @@
                 <b-form-input v-model="searchText"
                             type="text"
                             v-on:keyup.enter.native="search"
-                            placeholder="The resource you want to search"></b-form-input>
+                            placeholder="enter title, ISBN, author..."></b-form-input>
                 <b-input-group-button slot="right">
                   <b-btn variant="info" v-on:click="search">Search</b-btn>
                 </b-input-group-button>
